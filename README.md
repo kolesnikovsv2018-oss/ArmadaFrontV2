@@ -1,5 +1,7 @@
 # Nuxt Minimal Starter
 
+Здесь версия "tailwindcss" - "version": "4.1.17",
+
 Это тестовое приложение, в котором решались задачи
 
 1. подключить к проекту tailwindcss
