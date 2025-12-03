@@ -8,7 +8,10 @@ export default defineNuxtConfig({
   //   port: 3001
   // }
 
-  css: ['~/assets/css/main.css'],
+  css: [
+    // '~/assets/css/main.css',
+    '~/assets/scss/main.scss'
+  ],
   vite: {
     plugins: [
       tailwindcss(),

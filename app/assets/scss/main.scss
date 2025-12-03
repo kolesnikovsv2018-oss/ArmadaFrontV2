@@ -1,0 +1,16 @@
+// Global SCSS (Nuxt 4)
+// Variables derive from runtime CSS variables set in app.vue
+
+// Bind SCSS variables to CSS variables coming from JS
+$primary: var(--color-primary);
+$secondary: var(--color-secondary);
+
+// Optional: expose as CSS variables for other plain CSS usage
+:root {
+  --color-primary: #{$primary};
+  --color-secondary: #{$secondary};
+}
+
+body {
+  color: #{$primary};
+}

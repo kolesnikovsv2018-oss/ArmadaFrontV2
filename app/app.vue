@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const primaryColor = '#1e40af';
+const primaryColor = '#EE0000';
 const secondaryColor = '#9333ea';
 
 // Устанавливаем CSS переменные
