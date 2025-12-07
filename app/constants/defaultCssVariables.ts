@@ -1,11 +1,11 @@
-import type { IAppCssVariables } from "~/types/ICssColors";
+import type { IAppCssVariables } from "~/types/CssVariables";
 
 export const defaultCssVariables: IAppCssVariables = {
   textColor: '#000000',
   primaryColor: '#ff5733',
   secondaryColor: '#33ff57',
 
-  appBackgroundColor: '#ffffff',
+  bodyBackgroundColor: '#ffffff',
   headerBackgroundColor: '#f1f1f1',
   footerBackgroundColor: '#f1f1f1',
   leftSideBackgroundColor: '#e0e0e0',

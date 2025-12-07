@@ -1,7 +1,19 @@
 <script setup lang="ts">
-import type { IAppCssVariables } from './types/ICssColors';
+import type { IAppCssVariables } from './types/CssVariables';
 
-const startCssColors = await useApi().fetchCssVariables();
+import { useCssApi } from './composables/api/cssApi';
+
+const cssVariablesComposables = useCssVariables();
+
+const startCssColors = await useCssApi().fetchCssVariables();
+
+const styleObject = cssVariablesComposables.generateStyleObject(startCssColors as Record<string, string | null>);
+
+useHead({
+  htmlAttrs: {
+    style: styleObject,
+  }
+})
 
 const colors = ref<IAppCssVariables>(startCssColors);
 
@@ -9,20 +21,20 @@ function changeAppCssVariables(
   appCssVariables: IAppCssVariables
 ) {
   colors.value = appCssVariables;
-  useCssVariables().setCssVariables(colors.value);
+  cssVariablesComposables.setCssVariables(colors.value);
 }
 
 watch(
   colors,
   (newColors) => {
-    useCssVariables().setCssVariables(newColors);
+    cssVariablesComposables.setCssVariables(newColors);
   }
 );
 
-onBeforeMount(() => {
+onMounted(() => {
+  changeAppCssVariables(colors.value);
 });
 
-changeAppCssVariables(colors.value);
 </script>
 
 <template>

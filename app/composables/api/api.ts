@@ -1,7 +1,3 @@
-import type { IAppCssVariables } from "~/types/ICssColors";
-
-import { defaultCssVariables } from "~/constants/defaultCssVariables";
-
 export function useApi() {
   async function fetchData(endpoint: string): Promise<any | null> {
     try {
@@ -16,14 +12,7 @@ export function useApi() {
     }
   };
 
-  function fetchCssVariables(): Promise<IAppCssVariables> {
-    return new Promise<IAppCssVariables>((resolve) => {
-      resolve(defaultCssVariables);
-    });
-  }
-
   return {
     fetchData,
-    fetchCssVariables,
   };
 }

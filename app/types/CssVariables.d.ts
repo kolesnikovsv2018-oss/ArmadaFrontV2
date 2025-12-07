@@ -1,9 +1,9 @@
 export interface IAppCssVariables {
   textColor?: string;
-  primaryColor: string;
-  secondaryColor: string;
+  primaryColor?: string;
+  secondaryColor?: string;
 
-  appBackgroundColor?: string;
+  bodyBackgroundColor?: string;
   headerBackgroundColor?: string;
   footerBackgroundColor?: string;
   leftSideBackgroundColor?: string;

@@ -9,7 +9,7 @@
         <AppLeftSide />
       </slot>
 
-      <main>
+      <main class="app-main">
         <slot />
       </main>
 
@@ -31,7 +31,10 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  color: var(--text-color)
+  color: var(--text-color);
+
+  padding-top: var(--header-height);
+  padding-bottom: var(--footer-height);
 }
 
 .app-layout-content {
@@ -41,5 +44,11 @@
   gap: 1rem;
 
   min-height: 100%;
+}
+
+.app-main {
+  flex: 1;
+  padding: 1rem;
+  background-color: var(--body-background-color);
 }
 </style>

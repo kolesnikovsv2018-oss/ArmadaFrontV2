@@ -1,9 +1,13 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const newsComposables = useNews();
+
+// инициирует useAsyncData внутри композабла (один раз для обоих сервера и клиента)
+await newsComposables.initNews();
+</script>
 
 <template>
-  <div class="app-right-side">
-    <p class="text-primary">This is the right side with primary color text.</p>
-    <p class="text-secondary">This is the right side with secondary color text.</p>
-
-  </div>
+  <h2>Last news</h2>
+  <NewsList :news="newsComposables.news.value" />
 </template>
+
+<style scoped></style>
