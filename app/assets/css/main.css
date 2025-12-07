@@ -1,6 +1,36 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: var(--color-primary, #1e40af);
-  --color-secondary: var(--color-secondary, #9333ea);
+  --text-color: var(--text-color, #374151);
+  --color-primary: var(--primary-color, #1e40af);
+  --color-secondary: var(--secondary-color, #9333ea);
+
+  --app-background-color: var(--app-background-color, #f9fafb);
+  --header-background-color: var(--header-background-color, #111827);
+  --footer-background-color: var(--footer-background-color, #111827);
+  --left-side-background-color: var(--left-side-background-color, #e0e0e0);
+  --right-side-background-color: var(--right-side-background-color, #e0e0e0);
+
+  --header-height: var(--header-height, 60px);
+  --footer-height: var(--footer-height, 40px);
+  --left-side-width: var(--left-side-width, 250px);
+  --right-side-width: var(--right-side-width, 250px);
+}
+
+body {
+  color: var(--text-color, #374151);
+  background-color: var(--app-background-color, #f9fafb);
+
+  padding-top: var(--header-height);
+  padding-bottom: var(--footer-height);
+
+  min-height: 100vh;
+}
+
+h1 {
+  color: var(--primary-color);
+}
+
+h2 {
+  color: var(--secondary-color);
 }

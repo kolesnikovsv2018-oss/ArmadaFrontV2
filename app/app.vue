@@ -1,37 +1,32 @@
 <script setup lang="ts">
-interface IColors {
-  primary: string;
-  secondary: string;
-}
+import type { IAppCssVariables } from './types/ICssColors';
 
-const colors = ref<IColors>({
-  primary: '#EE0000',
-  secondary: '#0000EE',
-});
+const startCssColors = await useApi().fetchCssVariables();
 
-function onChangeColors(
-  { secondary, primary }: IColors
+const colors = ref<IAppCssVariables>(startCssColors);
+
+function changeAppCssVariables(
+  appCssVariables: IAppCssVariables
 ) {
-  colors.value.primary = primary;
-  colors.value.secondary = secondary;
-
-  // Устанавливаем CSS переменные
-  if (import.meta.client) {
-    document.documentElement.style.setProperty('--color-primary', colors.value.primary);
-    document.documentElement.style.setProperty('--color-secondary', colors.value.secondary);
-  }
+  colors.value = appCssVariables;
+  useCssVariables().setCssVariables(colors.value);
 }
+
+watch(
+  colors,
+  (newColors) => {
+    useCssVariables().setCssVariables(newColors);
+  }
+);
 
 onBeforeMount(() => {
-  onChangeColors(colors.value);
 });
+
+changeAppCssVariables(colors.value);
 </script>
 
 <template>
-  <div>
-    <AppHeader />
-    <button @click="onChangeColors({ primary: '#00AA00', secondary: '#AA00AA' })">Change Colors</button>
-    <div class="text-primary">This is primary color text.</div>
-    <div class="text-secondary">This is secondary color text.</div>
-  </div>
+  <NuxtLayout>
+    <NuxtPage />
+  </NuxtLayout>
 </template>
