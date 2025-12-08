@@ -1,0 +1,81 @@
+<svg width="1920" height="500" viewBox="0 0 1920 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="dawn" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0c4a6e;stop-opacity:1" />
+      <stop offset="30%" style="stop-color:#7c3aed;stop-opacity:1" />
+      <stop offset="60%" style="stop-color:#ec4899;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f97316;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="waterGlow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#a78bfa;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#0c4a6e;stop-opacity:0" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Dawn sky -->
+  <rect width="1920" height="500" fill="url(#dawn)"/>
+  
+  <!-- Clouds -->
+  <g opacity="0.3" fill="#e2e8f0">
+    <ellipse cx="300" cy="100" rx="100" ry="30"/>
+    <ellipse cx="250" cy="110" rx="80" ry="25"/>
+    <ellipse cx="350" cy="105" rx="70" ry="20"/>
+    
+    <ellipse cx="900" cy="80" rx="120" ry="35"/>
+    <ellipse cx="850" cy="95" rx="90" ry="28"/>
+    
+    <ellipse cx="1500" cy="120" rx="110" ry="32"/>
+    <ellipse cx="1450" cy="130" rx="85" ry="26"/>
+    <ellipse cx="1550" cy="125" rx="75" ry="22"/>
+  </g>
+  
+  <!-- Water with color reflection -->
+  <rect x="0" y="280" width="1920" height="220" fill="url(#waterGlow)"/>
+  
+  <!-- Water ripples -->
+  <g opacity="0.25">
+    <path d="M 0 320 Q 320 310 640 320 T 1280 320 T 1920 320" stroke="#a78bfa" stroke-width="2" fill="none"/>
+    <path d="M 0 350 Q 320 343 640 350 T 1280 350 T 1920 350" stroke="#a78bfa" stroke-width="2" fill="none"/>
+    <path d="M 0 380 Q 320 373 640 380 T 1280 380 T 1920 380" stroke="#c084fc" stroke-width="1" fill="none"/>
+    <path d="M 0 410 Q 320 403 640 410 T 1280 410 T 1920 410" stroke="#c084fc" stroke-width="1" fill="none"/>
+  </g>
+  
+  <!-- Aircraft carrier group -->
+  <g transform="translate(960, 300)" opacity="0.75">
+    <!-- Main carrier -->
+    <rect x="-120" y="-15" width="240" height="35" fill="#1e293b" stroke="#475569" stroke-width="2"/>
+    <rect x="-100" y="-35" width="200" height="20" fill="#334155"/>
+    <rect x="60" y="-55" width="30" height="40" fill="#475569"/>
+    <rect x="65" y="-60" width="20" height="5" fill="#64748b"/>
+    
+    <!-- Flight deck details -->
+    <line x1="-100" y1="-25" x2="100" y2="-25" stroke="#64748b" stroke-width="1"/>
+    <line x1="-80" y1="-30" x2="-80" y2="-20" stroke="#64748b" stroke-width="1"/>
+    <line x1="-40" y1="-30" x2="-40" y2="-20" stroke="#64748b" stroke-width="1"/>
+    <line x1="0" y1="-30" x2="0" y2="-20" stroke="#64748b" stroke-width="1"/>
+    <line x1="40" y1="-30" x2="40" y2="-20" stroke="#64748b" stroke-width="1"/>
+    
+    <!-- Escort ships -->
+    <g transform="translate(-250, 40)" opacity="0.8">
+      <polygon points="0,-25 -35,3 35,3" fill="#1e293b"/>
+      <rect x="-3" y="-35" width="6" height="35" fill="#1e293b"/>
+    </g>
+    
+    <g transform="translate(250, 40)" opacity="0.8">
+      <polygon points="0,-25 -35,3 35,3" fill="#1e293b"/>
+      <rect x="-3" y="-35" width="6" height="35" fill="#1e293b"/>
+    </g>
+  </g>
+  
+  <!-- Strategic grid overlay -->
+  <g opacity="0.1" stroke="#e2e8f0" stroke-width="1">
+    <line x1="0" y1="250" x2="1920" y2="250"/>
+    <line x1="480" y1="0" x2="480" y2="500"/>
+    <line x1="960" y1="0" x2="960" y2="500"/>
+    <line x1="1440" y1="0" x2="1440" y2="500"/>
+  </g>
+  
+  <!-- Title -->
+  <text x="960" y="470" font-family="Arial, sans-serif" font-size="48" font-weight="bold" 
+        text-anchor="middle" fill="#c084fc" opacity="0.9" letter-spacing="4">STRATEGIC COMMAND</text>
+</svg>

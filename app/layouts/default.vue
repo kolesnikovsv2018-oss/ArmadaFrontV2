@@ -1,7 +1,45 @@
+<script setup lang="ts">
+import { useAppBannersStore } from '~/store/appBanners';
+
+const appBannersStore = useAppBannersStore();
+const banners = computed(() => appBannersStore.banners);
+
+// // Preload баннеров для улучшения LCP (Largest Contentful Paint)
+// if (!!banners.value.length && !!banners.value[0]) {
+//   console.log('[preload] banners images for LCP', banners.value.map(b => b.backgroundImageUrl));
+  
+//   useHead({
+//     link: [
+//       {
+//         rel: 'preload',
+//         as: 'image',
+//         href: banners.value[0].backgroundImageUrl,
+//         fetchpriority: 'high'
+//       },
+//       ...(banners.value.map(
+//         (banner) => ({
+//           rel: 'preload' as const,
+//           as: 'image' as const,
+//           href: banner.backgroundImageUrl,
+//           fetchpriority: 'low' as const
+//         })
+//       ))
+//     ]
+//   })
+// }
+</script>
+
 <template>
   <div class="app">
     <slot name="header">
       <AppHeader />
+    </slot>
+
+    <slot name="banner">
+      <AppBanner
+        v-if="!!banners?.length"
+        :banners="banners"
+      />
     </slot>
 
     <div class="app-layout-content">
@@ -23,8 +61,6 @@
     </slot>
   </div>
 </template>
-
-<script setup lang="ts"></script>
 
 <style scoped>
 .app {

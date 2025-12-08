@@ -1,5 +1,11 @@
 <script setup lang="ts">
+import { useAppBannersStore } from '~/store/appBanners';
+
+const appBannersStore = useAppBannersStore();
 const newsComposables = useNews();
+
+await appBannersStore.initBanners('default');
+useBannersPreload(appBannersStore.banners);
 
 // инициирует useAsyncData внутри композабла (один раз для обоих сервера и клиента)
 await newsComposables.initNews();

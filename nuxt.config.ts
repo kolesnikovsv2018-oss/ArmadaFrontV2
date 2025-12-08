@@ -9,6 +9,10 @@ export default defineNuxtConfig({
   //   port: 3001
   // }
 
+  modules: [
+    '@pinia/nuxt',
+  ],
+
   css: [
     '~/assets/css/main.css',
     '~/assets/scss/main.scss'

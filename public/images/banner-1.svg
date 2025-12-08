@@ -1,0 +1,52 @@
+<svg width="1920" height="500" viewBox="0 0 1920 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="ocean1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#1e3a8a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0c4a6e;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="horizon1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ec4899;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#1e3a8a;stop-opacity:0" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Ocean background -->
+  <rect width="1920" height="500" fill="url(#ocean1)"/>
+  
+  <!-- Sunset/sunrise horizon -->
+  <ellipse cx="960" cy="150" rx="120" ry="120" fill="#fb923c" opacity="0.6" filter="blur(20px)"/>
+  <ellipse cx="960" cy="150" rx="80" ry="80" fill="#fbbf24" opacity="0.8"/>
+  
+  <!-- Horizon glow -->
+  <rect x="0" y="0" width="1920" height="250" fill="url(#horizon1)"/>
+  
+  <!-- Water waves -->
+  <g opacity="0.15">
+    <path d="M 0 280 Q 240 260 480 280 T 960 280 T 1440 280 T 1920 280" stroke="#60a5fa" stroke-width="3" fill="none"/>
+    <path d="M 0 320 Q 240 300 480 320 T 960 320 T 1440 320 T 1920 320" stroke="#60a5fa" stroke-width="2" fill="none"/>
+    <path d="M 0 360 Q 240 340 480 360 T 960 360 T 1440 360 T 1920 360" stroke="#60a5fa" stroke-width="2" fill="none"/>
+    <path d="M 0 400 Q 240 380 480 400 T 960 400 T 1440 400 T 1920 400" stroke="#60a5fa" stroke-width="1" fill="none"/>
+  </g>
+  
+  <!-- Ship silhouettes -->
+  <g transform="translate(400, 240)" opacity="0.7">
+    <polygon points="0,-40 -60,10 60,10" fill="#1e293b"/>
+    <rect x="-5" y="-60" width="10" height="60" fill="#1e293b"/>
+    <polygon points="0,-55 -25,-20 0,0" fill="#334155"/>
+  </g>
+  
+  <g transform="translate(1200, 260)" opacity="0.6">
+    <polygon points="0,-30 -40,5 40,5" fill="#1e293b"/>
+    <rect x="-4" y="-45" width="8" height="45" fill="#1e293b"/>
+  </g>
+  
+  <g transform="translate(1500, 255)" opacity="0.5">
+    <polygon points="0,-25 -30,3 30,3" fill="#1e293b"/>
+    <rect x="-3" y="-35" width="6" height="35" fill="#1e293b"/>
+  </g>
+  
+  <!-- Decorative text -->
+  <text x="960" y="460" font-family="Arial, sans-serif" font-size="48" font-weight="bold" 
+        text-anchor="middle" fill="#3b82f6" opacity="0.8" letter-spacing="4">NAVAL DOMINANCE</text>
+</svg>
