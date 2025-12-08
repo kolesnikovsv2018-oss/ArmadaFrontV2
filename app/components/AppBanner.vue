@@ -6,6 +6,8 @@ interface IHeroBlockProps {
   delayInMs?: number;
 }
 
+const DEFAULT_DELAY_IN_MS = 3000;
+
 const props = defineProps<IHeroBlockProps>();
 
 const bannerNumber = ref<number>(0);
@@ -20,7 +22,7 @@ const startStyle = computed(() => {
   };
 });
 
-let timer: number | null = null;
+let timer: ReturnType<typeof setTimeout> | null = null;
 
 watch(
   () => props.banners,
@@ -31,6 +33,10 @@ watch(
 
 onMounted(() => {
   start();
+});
+
+onBeforeUnmount(() => {
+  stop();
 });
 
 function nextImage() {
@@ -44,14 +50,18 @@ function prevImage() {
 };
 
 function start() {
+  stop(); // очистка предыдущего таймера
   if (props.banners.length > 1) {
-    timer = setInterval(nextImage, props.delayInMs ?? 5000);
+    timer = setTimeout(() => {
+      nextImage();
+      start(); // рекурсивный запуск следующего таймера
+    }, props.delayInMs ?? DEFAULT_DELAY_IN_MS);
   }
 }
 
 function stop() {
   if (timer) {
-    clearInterval(timer);
+    clearTimeout(timer);
     timer = null;
   }
 }
@@ -92,7 +102,10 @@ function prev() {
         aria-label="Previous slide"
         @click="prev"
       >
-        <Icon name="ph:caret-left-bold" size="24" />
+        <Icon
+          name="ph:caret-left-bold"
+          size="24"
+        />
       </button>
       <button
         type="button"
@@ -100,7 +113,10 @@ function prev() {
         aria-label="Next slide"
         @click="next"
       >
-        <Icon name="ph:caret-right-bold" size="24" />
+        <Icon
+          name="ph:caret-right-bold"
+          size="24"
+        />
       </button>
     </div>
   </section>
