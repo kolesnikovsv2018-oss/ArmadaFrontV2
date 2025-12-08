@@ -2,7 +2,7 @@
 import { useAppBannersStore } from '~/store/appBanners';
 
 const appBannersStore = useAppBannersStore();
-const banners = computed(() => appBannersStore.banners);
+const banners = computed(() => appBannersStore.banners || []);
 
 // // Preload баннеров для улучшения LCP (Largest Contentful Paint)
 // if (!!banners.value.length && !!banners.value[0]) {
@@ -37,8 +37,8 @@ const banners = computed(() => appBannersStore.banners);
 
     <slot name="banner">
       <AppBanner
-        v-if="!!banners?.length"
         :banners="banners"
+        class="h-96"
       />
     </slot>
 

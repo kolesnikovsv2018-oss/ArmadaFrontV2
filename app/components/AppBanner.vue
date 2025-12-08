@@ -8,8 +8,6 @@ interface IHeroBlockProps {
 
 const props = defineProps<IHeroBlockProps>();
 
-const heroBlockSection = ref<HTMLElement | null>(null);
-
 const bannerNumber = ref<number>(0);
 
 const currentBanner = computed(() => {
@@ -25,13 +23,6 @@ const startStyle = computed(() => {
 const changeImage = () => {
   bannerNumber.value =
     (bannerNumber.value + 1) % props.banners.length;
-
-  // if (
-  //   !!heroBlockSection.value
-  //   && !!currentBanner.value?.backgroundImageUrl
-  // ) {
-  //   heroBlockSection.value.style.backgroundImage = `url(${currentBanner.value.backgroundImageUrl})`;
-  // }
 };
 
 watch(
@@ -54,7 +45,6 @@ function start() {
 
 <template>
   <section
-    ref="heroBlockSection"
     class="w-full p-0 h-96 bg-cover bg-center"
     :style="startStyle"
   >
