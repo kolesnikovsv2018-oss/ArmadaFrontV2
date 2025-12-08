@@ -19,23 +19,21 @@ const hasNews = computed(() => {
   </div>
   <div
     v-else
-    class="flex flex-col gap-4 news-list"
+    class="flex flex-col gap-6 news-list"
   >
-    <template
+    <div
       v-for="item in news"
       :key="item.id"
     >
-      <NewsItem :item="item" />
+      <NewsItem
+        :item="item"
+        class="mb-2"
+      />
       <div>
         <a :href="`/news/${item.slug}`">Read more</a>
       </div>
-    </template>
+    </div>
   </div>
 </template>
 
-<style scoped>
-.news-empty-list {
-  font-style: italic;
-  color: var(--text-secondary-color);
-}
-</style>
+<style scoped></style>

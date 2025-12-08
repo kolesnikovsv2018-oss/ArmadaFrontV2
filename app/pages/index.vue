@@ -6,7 +6,7 @@ await newsComposables.initNews();
 </script>
 
 <template>
-  <h2>Last news</h2>
+  <h2 class="mb-6 text-3xl">Last news</h2>
   <NewsList :news="newsComposables.news.value" />
 </template>
 
