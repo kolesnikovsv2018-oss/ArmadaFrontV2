@@ -88,7 +88,7 @@ function prev() {
     >
       <button
         type="button"
-        class="pointer-events-auto flex h-12 w-12 items-center justify-center rounded-full bg-black/50 text-white shadow-lg transition hover:bg-black/70 focus:outline-none focus:ring-2 focus:ring-white/80"
+        class="pointer-events-auto flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-black/50 text-white shadow-lg transition hover:bg-black/70 focus:outline-none focus:ring-2 focus:ring-white/80"
         aria-label="Previous slide"
         @click="prev"
       >
@@ -96,7 +96,7 @@ function prev() {
       </button>
       <button
         type="button"
-        class="pointer-events-auto flex h-12 w-12 items-center justify-center rounded-full bg-black/50 text-white shadow-lg transition hover:bg-black/70 focus:outline-none focus:ring-2 focus:ring-white/80"
+        class="pointer-events-auto flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-black/50 text-white shadow-lg transition hover:bg-black/70 focus:outline-none focus:ring-2 focus:ring-white/80"
         aria-label="Next slide"
         @click="next"
       >
